@@ -33,3 +33,5 @@ const notebook = (state = initialState, action) => {
       return state;
   }
 };
+
+export default notebook;
