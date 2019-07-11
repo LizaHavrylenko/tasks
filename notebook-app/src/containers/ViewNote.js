@@ -6,17 +6,21 @@ import { Link } from 'react-router-dom';
 const ViewNote = ({ note: { title, text, id } }) => (
   <Fragment>
     <h2>{title}</h2>
-    {title !== 'Searched note is not found' && (
-      <Fragment>
-        <p>{text}</p>
+    <p>{text}</p>
+    <div className="buttonsGroup">
+      {title !== 'Searched note is not found' && (
         <Link to={`/notes/${id}/update`}>
-          <button type="button">Edit this note</button>
+          <button type="button" className="confirmButton">
+            Edit this note
+          </button>
         </Link>
-      </Fragment>
-    )}
-    <Link to="/notes">
-      <button type="button">Back to notes</button>
-    </Link>
+      )}
+      <Link to="/notes">
+        <button type="button" className="cancelButton">
+          Back to notes
+        </button>
+      </Link>
+    </div>
   </Fragment>
 );
 

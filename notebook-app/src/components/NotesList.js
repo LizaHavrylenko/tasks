@@ -3,13 +3,13 @@ import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 
 const NotesList = ({ notes }) => (
-  <ul>
+  <ul className="listContainer">
     {notes.map(note => {
       const { id, title } = note;
 
       return (
         <Link to={`/notes/${id}`} key={id} className="linkToNote">
-          <li>{title}</li>
+          <li className="listItem">{title}</li>
         </Link>
       );
     })}

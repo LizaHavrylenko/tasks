@@ -42,7 +42,9 @@ class UpdateNote extends Component {
       <Fragment>
         {title === 'Searched note is not found' ? (
           <Link to="/notes">
-            <button type="button">Back to notes</button>
+            <button type="button" className="cancelButton">
+              Back to notes
+            </button>
           </Link>
         ) : (
           <div>
@@ -55,7 +57,11 @@ class UpdateNote extends Component {
               header="Edit Note"
               button="Save"
             />
-            <button type="button" onClick={this.handleDeleteNote}>
+            <button
+              type="button"
+              className="dangerButton"
+              onClick={this.handleDeleteNote}
+            >
               Delete this note
             </button>
           </div>

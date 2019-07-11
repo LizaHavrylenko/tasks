@@ -22,7 +22,7 @@ class NoteForm extends Component {
               errorLabel.textContent = 'Enter the title of your note, please.';
               break;
             case 'text':
-              errorLabel.textContent = 'Add the text of your note, please';
+              errorLabel.textContent = 'Add the text of your note, please.';
               break;
             default:
               errorLabel.textContent = input.validationMessage;
@@ -66,7 +66,7 @@ class NoteForm extends Component {
       <form onSubmit={this.handleSubmit} ref={this.formRef} noValidate>
         <h2>{header}</h2>
         <div className="form-group">
-          <label htmlFor="title">Title:</label>
+          <label htmlFor="title">Title</label>
           <input
             type="text"
             id="title"
@@ -79,7 +79,7 @@ class NoteForm extends Component {
           <span className="invalid-feedback"></span>
         </div>
         <div className="form-group">
-          <label htmlFor="text">Text:</label>
+          <label htmlFor="text">Text</label>
           <textarea
             type="text"
             id="text"
@@ -91,10 +91,16 @@ class NoteForm extends Component {
           ></textarea>
           <span className="invalid-feedback"></span>
         </div>
-        <button type="submit">{button}</button>
-        <Link to="/notes">
-          <button type="button">Back to notes</button>
-        </Link>
+        <div className="buttonsGroup">
+          <button type="submit" className="confirmButton">
+            {button}
+          </button>
+          <Link to="/notes">
+            <button type="button" className="cancelButton">
+              Back to notes
+            </button>
+          </Link>
+        </div>
       </form>
     );
   }
