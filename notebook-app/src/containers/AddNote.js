@@ -12,26 +12,10 @@ class AddNote extends Component {
     id: uuidv4(),
   };
 
-  handleChangeTitle = event => {
+  handleChangeInput = (event, type) => {
     this.setState({
-      title: event.target.value,
+      [type]: event.target.value,
     });
-  };
-
-  handleChangeText = event => {
-    this.setState({
-      text: event.target.value,
-    });
-  };
-
-  handleChangeInput = event => {
-    event.target.style.height = 'inherit';
-    const computed = window.getComputedStyle(event.target);
-    const height =
-      parseInt(computed.getPropertyValue('border-top-width'), 10) +
-      event.target.scrollHeight +
-      parseInt(computed.getPropertyValue('border-bottom-width'), 10);
-    event.target.style.height = height + 'px';
   };
 
   handleSubmit = () => {
@@ -43,14 +27,13 @@ class AddNote extends Component {
       text: '',
     });
   };
+
   render() {
     const { title, text, id } = this.state;
 
     return (
       <NoteForm
         handleChangeInput={this.handleChangeInput}
-        handleChangeText={this.handleChangeText}
-        handleChangeTitle={this.handleChangeTitle}
         handleFormSubmit={this.handleSubmit}
         title={title}
         id={id}

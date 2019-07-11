@@ -13,29 +13,13 @@ class UpdateNote extends Component {
     id: this.props.note.id,
   };
 
-  handleChangeTitle = event => {
+  handleChangeInput = (event, type) => {
     this.setState({
-      title: event.target.value,
+      [type]: event.target.value,
     });
   };
 
-  handleChangeText = event => {
-    this.setState({
-      text: event.target.value,
-    });
-  };
-
-  handleChangeInput = event => {
-    event.target.style.height = 'inherit';
-    const computed = window.getComputedStyle(event.target);
-    const height =
-      parseInt(computed.getPropertyValue('border-top-width'), 10) +
-      event.target.scrollHeight +
-      parseInt(computed.getPropertyValue('border-bottom-width'), 10);
-    event.target.style.height = height + 'px';
-  };
-
-  updateNote = () => {
+  handleUpdateNote = () => {
     const { updateNote } = this.props;
     const { id } = this.state;
 
@@ -43,7 +27,7 @@ class UpdateNote extends Component {
     this.props.history.push(`/notes/${id}`);
   };
 
-  deleteNote = () => {
+  handleDeleteNote = () => {
     const { deleteNote } = this.props;
     const { id } = this.state;
 
@@ -64,16 +48,14 @@ class UpdateNote extends Component {
           <div>
             <NoteForm
               handleChangeInput={this.handleChangeInput}
-              handleChangeText={this.handleChangeText}
-              handleChangeTitle={this.handleChangeTitle}
-              handleFormSubmit={this.updateNote}
+              handleFormSubmit={this.handleUpdateNote}
               title={title}
               text={text}
               id={id}
               header="Edit Note"
               button="Save"
             />
-            <button type="button" onClick={this.deleteNote}>
+            <button type="button" onClick={this.handleDeleteNote}>
               Delete this note
             </button>
           </div>
