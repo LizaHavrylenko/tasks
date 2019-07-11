@@ -9,7 +9,7 @@ const MainPage = ({ notes }) => (
   <Fragment>
     <h1>Notebook</h1>
     {notes && notes.length > 0 && <NotesList notes={notes} />}
-    <Link>Add new note</Link>
+    <Link to="/notes/new">Add new note</Link>
   </Fragment>
 );
 

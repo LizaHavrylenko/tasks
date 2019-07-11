@@ -8,7 +8,7 @@ const NotesList = ({ notes }) => (
       const { id, title } = note;
 
       return (
-        <Link to={`/notes/${id}`} key={id.toString()} className="linkToNote">
+        <Link to={`/notes/${id}`} key={id} className="linkToNote">
           <li>{title}</li>
         </Link>
       );
@@ -19,7 +19,7 @@ const NotesList = ({ notes }) => (
 NotesList.propTypes = {
   posts: PropTypes.arrayOf(
     PropTypes.shape({
-      id: PropTypes.number.isRequired,
+      id: PropTypes.string.isRequired,
       title: PropTypes.string.isRequired,
       text: PropTypes.string.isRequired,
     }),
