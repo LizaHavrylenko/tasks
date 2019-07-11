@@ -13,7 +13,7 @@ class NoteForm extends Component {
 
   validate = () => {
     const inputs = [this.titleRef.current, this.textRef.current];
-    console.log('validity', this.formRef.current.checkValidity());
+
     if (this.formRef.current.checkValidity() === false) {
       inputs.forEach(input => {
         const errorLabel = input.parentNode.querySelector('.invalid-feedback');
@@ -109,13 +109,9 @@ class NoteForm extends Component {
           ></textarea>
           <span className="invalid-feedback"></span>
         </div>
-        <button type="submit" className="btn btn-default">
-          {button}
-        </button>
-        <Link to="/">
-          <button type="button" className="btn btn-default">
-            Back to notes
-          </button>
+        <button type="submit">{button}</button>
+        <Link to="/notes">
+          <button type="button">Back to notes</button>
         </Link>
         {redirect && <Redirect to={`/notes/${id}`}></Redirect>}
       </form>
