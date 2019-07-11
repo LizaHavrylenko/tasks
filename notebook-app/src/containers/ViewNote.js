@@ -9,7 +9,7 @@ const ViewNote = ({ note: { title, text, id } }) => (
     {title !== 'Searched note is not found' && (
       <Fragment>
         <p>{text}</p>
-        <Link to={`/notes/${id}/edit`}>
+        <Link to={`/notes/${id}/update`}>
           <button type="button">Edit this note</button>
         </Link>
       </Fragment>
