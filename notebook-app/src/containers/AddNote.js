@@ -5,13 +5,11 @@ import uuidv4 from 'uuid/v4';
 import { addNote } from '../store/actions';
 import NoteForm from '../components/NoteForm';
 
-const noteId = uuidv4();
-
 class AddNote extends Component {
   state = {
     title: '',
     text: '',
-    id: noteId,
+    id: uuidv4(),
   };
 
   handleChangeTitle = event => {

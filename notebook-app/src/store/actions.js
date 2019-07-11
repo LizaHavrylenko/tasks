@@ -12,5 +12,5 @@ export const updateNote = note => ({
 
 export const deleteNote = id => ({
   type: DELETE_NOTE,
-  id: id,
+  payload: { id },
 });

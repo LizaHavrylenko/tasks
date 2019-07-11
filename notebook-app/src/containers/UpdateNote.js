@@ -43,6 +43,14 @@ class UpdateNote extends Component {
     this.props.history.push(`/notes/${id}`);
   };
 
+  deleteNote = () => {
+    const { deleteNote } = this.props;
+    const { id } = this.state;
+
+    deleteNote(id);
+    this.props.history.push('/notes');
+  };
+
   render() {
     const { title, text, id } = this.state;
 
@@ -65,6 +73,9 @@ class UpdateNote extends Component {
               header="Edit Note"
               button="Save"
             />
+            <button type="button" onClick={this.deleteNote}>
+              Delete this note
+            </button>
           </div>
         )}
       </Fragment>

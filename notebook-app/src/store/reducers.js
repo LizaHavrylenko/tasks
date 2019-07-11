@@ -26,7 +26,7 @@ const notebook = (state = initialState, action) => {
       } = state.notesByHash;
 
       return {
-        recipesByHash: newStateNotesByHash,
+        notesByHash: newStateNotesByHash,
       };
     }
     default:
